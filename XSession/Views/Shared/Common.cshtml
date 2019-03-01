@@ -1,0 +1,125 @@
+﻿
+@{
+    PFSXSession<PFSUserSessionVariables> session = (PFSXSession<PFSUserSessionVariables>)Model;
+}
+
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h3>Current Session Data Values</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4">
+        Session ID:
+    </div>
+    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-8 col-xs-8">
+        @session.SessionIDHex
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4">
+        Session Hash:
+    </div>
+    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-8 col-xs-8">
+        @session.SessionHashValueHex
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4">
+        Current Hash:
+    </div>
+    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-8 col-xs-8">
+        @session.ByteArrayToHex(session.ComputeHash())
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4">
+        Hashes Match:
+    </div>
+    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-8 col-xs-8">
+        @{ 
+            string yn = "NO";
+            if (session.SessionHashValue.SequenceEqual(session.ComputeHash()))
+            {
+                yn = "YES";
+            }
+        }
+        @yn
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4">
+        Session Start:
+    </div>
+    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-8 col-xs-8">
+        @session.SessionStart.ToString("yyyy-MM-dd HH:mm:ss")
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4">
+        Session Current Time:
+    </div>
+    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-8 col-xs-8">
+        @session.SessionCurrentTime.ToString("yyyy-MM-dd HH:mm:ss")
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4">
+        Session Expires:
+    </div>
+    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-8 col-xs-8">
+        @session.SessionExpires.ToString("yyyy-MM-dd HH:mm:ss")
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4">
+        Session Length:
+    </div>
+    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-8 col-xs-8">
+        @{
+            TimeSpan ts = session.SessionExpires.Subtract(session.SessionCurrentTime);
+        }
+        @ts.ToString("hh\\:mm\\:ss")
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4">
+        Session Authenticated:
+    </div>
+    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-8 col-xs-8">
+        @if (session.SessionVariables.IsAuthenticated)
+        {
+            @Html.Raw("YES")
+        }
+        else
+        {
+            @Html.Raw("NO")
+        }
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4">
+        Authenticated UserID:
+    </div>
+    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-8 col-xs-8">
+        @session.SessionVariables.UserID
+    </div>
+</div>
+
+
+

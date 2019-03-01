@@ -1,0 +1,53 @@
+﻿@{
+    PFSXSession<PFSUserSessionVariables> session = (PFSXSession<PFSUserSessionVariables>)Model;
+}
+<div class="row">
+
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+        &nbsp;
+    </div>
+
+
+
+
+    <div class="col-xl-6 col-lg-6 col-md-6 col-xm-6 col-xs-6">
+
+
+
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                <H2>
+                    System Login
+                </H2>
+            </div>
+        </div>
+
+
+        <form method="post" action="/Home/loginsubmit">
+
+            <div class="form-group" style="padding-top:3.0em">
+                <label for="uid">User ID: (admin)</label>
+                <input type="text" name="uid" id="uid" class="form-control" placeholder="User ID - Use admin For Test Purposes" autofocus />
+            </div>
+
+            <div class="form-group">
+                <label for="pwd">Password: (admin)</label>
+                <input type="password" name="pwd" id="pwd" class="form-control" placeholder="Password - Use admin For Test Purposes" />
+            </div>
+
+            <input type="submit" class="btn btn-primary" value="Submit" />
+            <input type="hidden" name="sid" id="sid" value="@session.SessionIDHex" />
+
+
+        </form>
+
+
+
+    </div>
+
+
+    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+        &nbsp;
+    </div>
+
+</div>
