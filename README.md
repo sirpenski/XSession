@@ -22,12 +22,11 @@ public class UserSessionVariables
 <br>
 <b>2.  Add the following namespaces to all your controllers.</b>
 <br>
-
+<br>
 <pre>
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Filters;
 </pre>
-
 <br>
 <br>
 <b>3.  In all controllers, define a controller level variable to store the session.</b>
@@ -80,7 +79,7 @@ public override void OnActionExecuting(ActionExecutingContext context)<br>
 
 <br>
 <br>
-<b>5. In the ConfigureServices function in startup.cs, add the following to configure asp.net core to use session management and to store in server side memory.
+<b>5. In the ConfigureServices function in startup.cs, add the following to configure asp.net core to use session management and to store in server side memory.</b>
 <br>
 <br>
 <pre> 
@@ -120,11 +119,11 @@ public void ConfigureServices(IServiceCollection services)
 <br>
 <br>
 <b>7. Have Fun</b>
-<P>
+<br>
+<br>
 *** The class file is located in the Models folder of the project.  The file name is PFSXSession.cs  Rename it and change the namespace, etc.
-</p>
-<p>
-
-Best Regards,
+<br>
+<br>
+Best Regards,<br>
 Paul Sirpenski.
-</p>
+
