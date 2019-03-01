@@ -33,7 +33,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 <br>
 <br>
 <pre>
-PFSXSession&lt;UserSessionVariablesglt; session;
+PFSXSession&lt;UserSessionVariables&gt; session;
 </pre>
 <br>
 <br>
