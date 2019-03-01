@@ -32,6 +32,8 @@ namespace XSession.Controllers
             // define a new user session
             session = new PFSXSession<PFSUserSessionVariables>(context.HttpContext);
 
+            // set the session timeout to 1 minute.  This is for testing purposes, normally, 
+            // timeout occurs after 20 minutes.
             session.SessionExpirationIncrement = new TimeSpan(0, 1, 0);
 
             // now load the user session
