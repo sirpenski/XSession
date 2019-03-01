@@ -20,7 +20,7 @@ public class UserSessionVariables
 
 <br>
 <br>
-<b>2.  Add the following namespaces to your controllers.</b>
+<b>2.  Add the following namespaces to all your controllers.</b>
 <br>
 
 <pre>
@@ -30,16 +30,17 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 <br>
 <br>
-<b>3.  Define a controller level variable to store the session.</b><br>
+<b>3.  In all controllers, define a controller level variable to store the session.</b>
+<br>
 <br>
 <pre>
 PFSXSession&lt;UserSessionVariablesglt; session;
 </pre>
-
 <br>
-<b>4.  In each controller, define an OnActionExecuting function.</b><br>
 <br>
-
+<b>4.  In each controller, define an OnActionExecuting function.</b>
+<br>
+<br>
 <pre>
 public override void OnActionExecuting(ActionExecutingContext context)<br>
 {
@@ -79,7 +80,8 @@ public override void OnActionExecuting(ActionExecutingContext context)<br>
 
 <br>
 <br>
-<b>5. In the ConfigureServices function in startup.cs, add the following to configure asp.net core to use session management and to store in server side memory.<br>
+<b>5. In the ConfigureServices function in startup.cs, add the following to configure asp.net core to use session management and to store in server side memory.
+<br>
 <br>
 <pre> 
 public void ConfigureServices(IServiceCollection services)
@@ -94,7 +96,6 @@ public void ConfigureServices(IServiceCollection services)
 </pre>
 <br>
 <br>
-
 <b>6. In the Configure function in startup.cs, add the UseSession(); and make sure it is before the UseMvc().</b>
 <br>
 <br>
