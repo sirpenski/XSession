@@ -1,6 +1,5 @@
 ﻿// **********************************************************************
 // Programmer: Paul F. Sirpenski
-// MIT License
 // **********************************************************************
 using System;
 using System.Collections.Generic;
