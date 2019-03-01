@@ -1,7 +1,7 @@
 # XSession
 <H3>Makes using Session Variables Easy For AspNetCore</H3>
 
-This is a simple project that illustrates how to use the generic XSession class to handle session variables is aspnetcore web applications.  THis sample provides a generic class so any type of object can be stored as a session variable.  To use the class, do the following
+This is a simple project that illustrates how to use the generic XSession class to handle session variables in aspnetcore web applications.  This sample provides a generic class so any type of object can be stored as a session variable.  To use the class, do the following
 
 <b>1.  Define any class that corresponds to the data model you want to save in a session.  Make sure the class is serializable and has a default constructor.</b>
 <br>
@@ -118,7 +118,20 @@ public void ConfigureServices(IServiceCollection services)
 </pre>
 <br>
 <br>
-<b>7. Have Fun</b>
+<b>7. To change session values, simply do the following anywhere in your controller methods</b>
+<br>
+<br>
+<pre>
+session.SessionVariables.IsAuthenticated = true;
+session.SessionVariables.UserID = "admin";
+session.Save();
+</pre>
+<br>
+<br>
+And remember, the session variable class can have as many properties as you so desire.  Things like browser, remote ip address, remote port, access level, etc.
+<br>
+<br>
+<b>8. Have Fun</b>
 <br>
 <br>
 *** The class file is located in the Models folder of the project.  The file name is PFSXSession.cs  Rename it and change the namespace, etc.
