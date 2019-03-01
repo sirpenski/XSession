@@ -100,21 +100,20 @@ public void ConfigureServices(IServiceCollection services)
 <br>
 <pre>
   
-         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-            app.UseStaticFiles();
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+     app.UseStaticFiles();
 
-            // use the session
-            app.UseSession();
+     // use the session
+     app.UseSession();
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
-        }
+     app.UseMvc(routes =>
+     {
+     routes.MapRoute(
+            name: "default",
+            template: "{controller=Home}/{action=Index}/{id?}");
+     });
+}
 </pre>
 <br>
 <br>
