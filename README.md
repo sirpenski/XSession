@@ -8,6 +8,7 @@ This is a simple project that illustrates how to use the generic XSession class 
 <br>
 
 <pre>
+[Serializable]
 public class UserSessionVariables
 {
   public bool IsAuthenticated {get; set;} = false;
